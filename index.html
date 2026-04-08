@@ -13,9 +13,6 @@
     <nav>
       <a href="#portfolio1">Portfolio 1</a>
       <a href="#portfolio2">Portfolio 2</a>
-      <a href="#portfolio3">Portfolio 3</a>
-      <a href="#portfolio4">Portfolio 4</a>
-      <a href="#finalproject">Final Design Project</a>
     </nav>
   </header>
 
@@ -23,21 +20,109 @@
     <section class="intro">
       <h2>Welcome</h2>
       <p>
-        This website showcases my engineering 2213 design projects, including digital logic
-        systems and my final design work.
+        This website showcases my Engineering 2213 digital logic portfolio projects.
+        Each project includes a description of the circuit, design documentation,
+        implementation evidence, and images of the work.
       </p>
     </section>
 
     <section id="portfolio1" class="project">
-      <details>
+      <details open>
         <summary>Portfolio 1: 3-Bit Combinational Divider</summary>
         <div class="project-content">
-          <h3>3-Bit Combinational Divider</h3>
+          <h3>Project Title</h3>
+          <p>3-Bit Combinational Divider</p>
+
+          <h3>Topic</h3>
+          <p>Binary Arithmetic</p>
+
+          <h3>Description</h3>
           <p>
-            This project involved designing a 3-bit combinational divider
-            using digital logic techniques. The system was built to perform division
-            operations through combinational logic without relying on repeated subtraction with memory or registers.
+            This project involved designing a 3-bit combinational divider using digital logic.
+            The goal of the circuit was to divide a 3-bit dividend by a 3-bit divisor and produce
+            quotient and remainder outputs entirely through combinational logic. The design does
+            not rely on registers, repeated subtraction over time, or clocked control. Instead,
+            all outputs are determined directly from the input bits.
           </p>
+          <p>
+            This project demonstrates binary arithmetic because it implements division logic at
+            the gate level. In addition to quotient and remainder outputs, the circuit also includes
+            an error output to indicate invalid input cases such as division by zero.
+          </p>
+
+          <h3>Inputs and Outputs</h3>
+          <p>
+            Inputs: dividend bits, divisor bits
+          </p>
+          <p>
+            Outputs: quotient bits, remainder bits, and error flag
+          </p>
+          <p>
+  The following images show the locations of the circuit inputs and outputs.
+  The input labeling image identifies the dividend and divisor inputs, and the
+  output labeling image identifies the error and quotient outputs.
+          </p>
+
+            <div class="gallery">
+              <img src="circuits1/n2n1n0d2d1d0.png" alt="Input labels for dividend and divisor bits">
+              <img src="circuits1/errorq3q2q1.png" alt="Output labels for error and quotient bits">
+            </div>
+
+          <h3>Design Documentation</h3>
+          <p>
+            The design process began by constructing the full truth table for all valid input
+            combinations of the 3-bit dividend and 3-bit divisor. After determining the correct
+            quotient, remainder, and error outputs for each case, Boolean expressions were derived
+            for each output.
+          </p>
+          <p>
+            Simplification was carried out using Boolean algebra and grouped logic terms so the
+            final circuit could be implemented efficiently with logic gates. The documentation for
+            this project includes:
+          </p>
+          <ul>
+            <li>full truth table</li>
+            <li>derived output equations</li>
+            <li>Boolean simplification work</li>
+            <li>gate-level circuit implementation</li>
+            <li>chip or gate usage</li>
+          </ul>
+
+          <h3>Design Decisions</h3>
+          <p>
+            One important design decision was to make the divider purely combinational instead of
+            sequential. This keeps the output immediate and makes the project fit the binary arithmetic
+            topic clearly. Another design decision was to include an explicit error output so undefined
+            division cases are handled cleanly instead of producing meaningless results.
+          </p>
+          <p>
+            During development, shared logic terms were reused where possible to reduce gate count
+            and simplify wiring. This improved the overall implementation and made the design more
+            practical to build and debug.
+          </p>
+
+          <h3>Parts / Components</h3>
+          <p>
+            Include the logic chips or gates used in the implementation here. Example:
+          </p>
+          <ul>
+            <li>7404 inverter</li>
+            <li>7408 AND gate</li>
+            <li>7432 OR gate</li>
+            <li>additional gates as needed</li>
+          </ul>
+
+          <h3>Supporting Evidence</h3>
+          <p>
+            This section should include public evidence of the project, such as:
+          </p>
+          <ul>
+            <li>simulation link</li>
+            <li>schematic</li>
+            <li>truth table image</li>
+            <li>K-map or algebra work</li>
+            <li>breadboard photos or video, if applicable</li>
+          </ul>
 
           <div class="gallery">
             <img src="images/portfolio1/img1.png" alt="3-bit combinational divider logic design">
@@ -48,14 +133,89 @@
     </section>
 
     <section id="portfolio2" class="project">
-      <details>
+      <details open>
         <summary>Portfolio 2: 4-Bit Two's Complement Adder/Subtractor</summary>
         <div class="project-content">
-          <h3>4-Bit Two's Complement Adder/Subtractor</h3>
+          <h3>Project Title</h3>
+          <p>4-Bit Two's Complement Adder/Subtractor</p>
+
+          <h3>Topic</h3>
+          <p>Binary Arithmetic</p>
+
+          <h3>Description</h3>
           <p>
-            This project focused on the design of a 4-bit circuit capable of
-            both addition and subtraction. The design used combinational logic to switch between operations and detect overflow.
+            This project focused on the design of a 4-bit arithmetic circuit capable of performing
+            both addition and subtraction. The circuit uses two’s complement arithmetic so that the
+            same hardware structure can perform both operations. A control input determines whether
+            the second operand is used directly for addition or complemented for subtraction.
           </p>
+          <p>
+            This project demonstrates binary arithmetic because it implements signed arithmetic in
+            hardware and shows how subtraction can be reduced to addition through two’s complement
+            methods. The design also includes overflow detection so the circuit can indicate when
+            the signed result is outside the representable 4-bit range.
+          </p>
+
+          <h3>Inputs and Outputs</h3>
+          <p>
+            Inputs: two 4-bit operands and operation select input
+          </p>
+          <p>
+            Outputs: 4-bit result and overflow output
+          </p>
+
+          <h3>Design Documentation</h3>
+          <p>
+            The circuit was designed by starting from the structure of a ripple-carry adder.
+            To support subtraction, XOR logic was used to conditionally invert the second operand
+            when the subtract control is active, and the same control signal was used as the carry-in
+            to implement the +1 required in two’s complement subtraction.
+          </p>
+          <p>
+            The documentation for this project includes:
+          </p>
+          <ul>
+            <li>functional explanation of addition and subtraction modes</li>
+            <li>logic for conditional inversion of the second operand</li>
+            <li>adder structure and carry propagation</li>
+            <li>overflow detection logic</li>
+            <li>schematic and implementation details</li>
+          </ul>
+
+          <h3>Design Decisions</h3>
+          <p>
+            A major design decision was to use a single arithmetic circuit for both addition and
+            subtraction instead of building two separate systems. This reduces hardware duplication
+            and reflects how arithmetic units are commonly designed in digital systems.
+          </p>
+          <p>
+            Another important design decision was to include overflow detection, since signed
+            two’s complement arithmetic requires more than just the final sum bits. This makes
+            the circuit more complete and more useful as a demonstration of arithmetic logic design.
+          </p>
+
+          <h3>Parts / Components</h3>
+          <p>
+            Include the chips or gates used in the implementation here. Example:
+          </p>
+          <ul>
+            <li>7486 XOR gate</li>
+            <li>7408 AND gate</li>
+            <li>7432 OR gate</li>
+            <li>7483 adder or equivalent full-adder structure</li>
+          </ul>
+
+          <h3>Supporting Evidence</h3>
+          <p>
+            This section should include public evidence of the project, such as:
+          </p>
+          <ul>
+            <li>simulation link</li>
+            <li>schematic</li>
+            <li>logic derivation screenshots</li>
+            <li>truth table or sample test cases</li>
+            <li>breadboard photos or video, if applicable</li>
+          </ul>
 
           <div class="gallery">
             <img src="images/portfolio2/img1.png" alt="4-bit adder subtractor circuit">
